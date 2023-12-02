@@ -13,7 +13,7 @@
 
 ## 1. Starting Debian 12 server on Digital Ocean
 
-## Making ssh key-pair
+### Making ssh key-pair
 
 1. you need to create a new .ssh directory
 run the following code in your terminal:
@@ -21,8 +21,21 @@ run the following code in your terminal:
 	mkdir .ssh
 ```
 
+2. Now you need to create the ssh key pair
+run the following code in your terminal:
+```
+	ssh-keygen -t ed25519 -f .ssh/do-key -C "your-email-address"
+```
 
-## 2. Creating a New Regular User
+### Make a digital ocean account
+
+You need to add your personal information
+
+### Add ssh key to digital ocean account
+1. Click **setting**
+
+
+### 2. Creating a New Regular User
 
 **Accessing the Server:**
 
