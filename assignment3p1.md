@@ -20,7 +20,7 @@ This tutorial guides you through setting up a Debian 12 server on DigitalOcean. 
 
 Log in to your server as the root user:
 
-> ssh -i path-to-your-key root@address-of-server
+```ssh -i path-to-your-key root@address-of-server```
 
 
 **Creating a New User:**
