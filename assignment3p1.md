@@ -1,26 +1,23 @@
-# Debian 12 Server Setup Tutorial on DigitalOcean
-
-## Due date: Friday December 01
-
-This tutorial guides you through setting up a Debian 12 server on DigitalOcean. You will create a new user with administrative privileges, configure SSH access, disable root SSH access, install Nginx, and set up a sample website.
+# LinuxAssignment3
 
 ### Objectives
 
-1. Create a new regular user who can:
+1. Starting from a Fresh Debian 12 server on digitalocean
+2. Create a new regular user who can:
    - Perform administrative tasks.
    - Use bash as their login shell.
    - Access the server via SSH.
-2. Prevent the root user from connecting to the server via SSH.
-3. Install Nginx.
-4. Configure Nginx to serve a sample website.
+3. Prevent the root user from connecting to the server via SSH.
+4. Install Nginx.
+5. Configure Nginx to serve a sample website.
 
-## 1. Creating a New Regular User
+## 2. Creating a New Regular User
 
 **Accessing the Server:**
 
 Log in to your server as the root user:
 
-```ssh -i path-to-your-key root@address-of-server```
+> ssh -i path-to-your-key root@address-of-server
 
 
 **Creating a New User:**
@@ -67,7 +64,7 @@ test your connection with
 > ssh -i path-to-your-key username@address-of-server
 
 
-## 2. Disabling Root SSH Access
+## 3. Disabling Root SSH Access
 
 to do this you need to edit the sshd_config file
 run the command:
@@ -96,14 +93,14 @@ now try connecting as root with:
 
 you should recieve a "permission denied" error
 
-## 3. Installing Nginx
+## 4. Installing Nginx
 
 to install anything you always need to
 
 **Update Package Lists:**
 
 
-## Configuring Nginx to Serve a Sample Website
+## 5. Configuring Nginx to Serve a Sample Website
 
 1. **Creating Website Directory:**
    - Create a directory for your website:
