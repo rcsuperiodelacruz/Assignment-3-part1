@@ -60,7 +60,7 @@ remember to replace *user-name* with your preferred user name
 
 Log in to your server as the root user
 In your terminal enter this:
-```bash
+```
   ssh -i path-to-your-key root@address-of-server
 ```
 
@@ -140,74 +140,119 @@ you should recieve a "permission denied" error
 
 ## 4. Installing Nginx
 
-to install anything you always need to
-
-**Update Package Lists:**
+1. to install anything you always need to update the packages
+```
+  sudo apt update
+```
+also do
+```
+  sudo apt upgrade
+```
+2. Now we can install NGINX
+```
+  sudo apt install nginx
+```
+3. Now we can start the NGINX service and check the status
+to start the system type:
+```
+	sudo systemctl start nginx
+```
+to check the status type:
+```
+	sudo systemctl status nginx
+```
 
 
 ## 5. Configuring Nginx to Serve a Sample Website
 
-1. **Creating Website Directory:**
-   - Create a directory for your website:
-     ```bash
-     mkdir -p /var/www/mywebsite/html
-     ```
-   - Assign ownership:
-     ```bash
-     sudo chown -R $USER:$USER /var/www/mywebsite/html
-     ```
+### Creating Website Directory
+1. Create a directory for your website can call it my-site
+```
+  mkdir -p /var/www/my-site
+```
 
-2. **Adding a Sample HTML Page:**
-   - Create an `index.html` file:
-     ```bash
-     nano /var/www/mywebsite/html/index.html
-     ```
-   - Add sample HTML content:
-     ```html
-     <!DOCTYPE html>
-     <html>
-     <head>
-         <title>Welcome to My Website</title>
-     </head>
-     <body>
-         <h1>Hello, World!</h1>
-         <p>This is a sample website on my Debian server.</p>
-     </body>
-     </html>
-     ```
+### Adding a Sample HTML Page
+1. Create an `index.html` file:
+```
+  sudo vim /var/www/my-site/index.html
+```
+This is the sample page
+```
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>2420</title>
+	    <style>
+	        body {
+	            display: flex;
+	            align-items: center;
+	            justify-content: center;
+	            height: 100vh;
+	            margin: 0;
+	        }
+	        h1 {
+	            text-align: center;
+	        }
+	    </style>
+	</head>
+	<body>
+	    <h1>Hello, World</h1>
+	</body>
+	</html>
+```
 
-3. **Nginx Server Block Configuration:**
-   - Create a configuration file for your site:
-     ```
-     sudo nano /etc/nginx/sites-available/mywebsite
-     ```
-   - Insert the following server block:
-     ```nginx
-     server {
-         listen 80;
-         server_name mywebsite.com www.mywebsite.com;
+## Nginx Server Block Configuration
+1. Create a new configuration file for your site
+it will be in /etc/nginx/sites-available
+create the file:
+```
+  sudo vim /etc/nginx/sites-available/my-site
+```
+2. Insert the following server block:
+```nginx
+  server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    
+    root /var/www/my-site;
+    
+    index index.html index.htm index.nginx-debian.html;
+    
+    server_name _;
+    
+    location / {
+      # First attempt to serve request as file, then
+      # as directory, then fall back to displaying a 404.
+      try_files $uri $uri/ =404;
+    }
+  }
+```
+3. Create the symbolic link to your new configuration file
+```
+	sudo ln -s /etc/nginx/sites-available/my-file /etc/nginx/sites-enabled/
+```
+4. Delete the Duplicated Link
+```
+  sudo unlink /etc/nginx/sites-enabled/default
+```
 
-         root /var/www/mywebsite/html;
-         index index.html;
+### Testing Configuration
+1. use the following line of code to test for errors
+```
+	sudo nginx -t
+```
 
-         location / {
-             try_files $uri $uri/ =404;
-         }
-     }
-     ```
-   - Enable this configuration:
-     ```bash
-     sudo ln -s /etc/nginx/sites-available/mywebsite /etc/nginx/sites-enabled/
-     ```
+### Restarting Nginx
+1. Restart Nginx to apply changes:
+```
+	sudo systemctl restart nginx
+```
 
-4. **Testing Configuration:**
-   - Test for errors:
-     ```bash
-     sudo nginx -t
-     ```
-
-5. **Restarting Nginx:**
-   - Restart Nginx to apply changes:
-     ```bash
-     sudo systemctl restart nginx
-     ```
+### View Page
+1. Send an HTTP GET request
+```
+	curl <your-ip-address>
+```
+replace `your-ip-address` with your address
