@@ -77,7 +77,7 @@ replace *address-of-server* with the address of your Digital Ocean Server
 useradd -ms username
 ```
 
-3. if you want to add a password you can do the command:
+2. if you want to add a password you can do the command:
 
 ```
 passwd username
