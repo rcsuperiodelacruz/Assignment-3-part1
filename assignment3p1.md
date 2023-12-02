@@ -48,7 +48,7 @@ For MacOS
 
 remember to replace *user-name* with your preferred user name
 
-5. Paste into Digital Ocean public key text box and press ***Add SSH Key ***
+5. Paste into Digital Ocean public key text box and press **Add SSH Key **
 
 ### Create a Droplet
 1. Click Droplets on the left and create a droplet
@@ -60,7 +60,9 @@ remember to replace *user-name* with your preferred user name
 
 Log in to your server as the root user
 In your terminal enter this:
-```ssh -i path-to-your-key root@address-of-server```
+```bash
+  ssh -i path-to-your-key root@address-of-server
+```
 
 
 ### Creating a New User
