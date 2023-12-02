@@ -11,6 +11,17 @@
 4. Install Nginx.
 5. Configure Nginx to serve a sample website.
 
+## 1. Starting Debian 12 server on Digital Ocean
+
+## Making ssh key-pair
+
+1. you need to create a new .ssh directory
+run the following code in your terminal:
+```
+	mkdir .ssh
+```
+
+
 ## 2. Creating a New Regular User
 
 **Accessing the Server:**
