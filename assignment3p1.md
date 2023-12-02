@@ -32,9 +32,9 @@ run the following code in your terminal:
 You need to add your personal information
 
 ### Add ssh key to digital ocean account
-1. Click *setting* on the bottom left of the screen
-2. Click *security*
-3. Click *Add SSH Key* and it will require your public key
+1. Click *Setting* on the bottom left of the screen
+2. Click *Security*
+3. Click **Add SSH Key**, it will require your public key
 
 4. To retrieve your public key enter this command in your terminal:
 For Windows
@@ -63,17 +63,21 @@ In your terminal enter this:
 ```
   ssh -i path-to-your-key root@address-of-server
 ```
-
+replace *address-of-server* with the address of your Digital Ocean Server
 
 ### Creating a New User
 
-1. Use the following command, replacing username with your desired username:
+1. Use the following command, replacing *username* with your desired username:
 
-```useradd -ms username```
+```
+  useradd -ms username
+```
 
 3. if you want to add a password you can do the command:
 
-```passwd username```
+```
+  passwd username
+```
 
 make sure you replace "username" with the name of your user
 
@@ -87,26 +91,34 @@ the -s sets the login shell to /bin/bash
 
 To allow this user to perform administrative tasks, add them to the sudo group:
 
-```usermod -aG sudo username```
+```
+  usermod -aG sudo username
+```
 
 ### SSH Access for the New User
 
 1. first you need to copy the root users .ssh directory to the new users home directory
 to do that run the following command:
 
-```sudo cp -r /root/.ssh /home/username```
+```
+  sudo cp -r /root/.ssh /home/username
+```
 
-make sure that you change the username to your new username
+make sure that you change the *username* to your new username
 -r is to also copy the files within the directory
 
 2. Then we need to change ownership of the copied directory
 
-```sudo chown -R username:username /home/username.ssh```
+```
+  sudo chown -R username:username /home/username.ssh
+```
 
-again, make sure to replace "username" with your new username
+again, make sure to replace *username* with your new username
 
 3. test your connection with:
-```ssh -i path-to-your-key username@address-of-server```
+```
+  ssh -i path-to-your-key username@address-of-server
+```
 
 
 ### Disabling Root SSH Access
@@ -114,7 +126,9 @@ again, make sure to replace "username" with your new username
 1. to do this you need to edit the sshd_config file
 run the command:
 
-```sudo vim /etc/ssh/sshd_config```
+```
+  sudo vim /etc/ssh/sshd_config
+```
 
 2. look for the line:
 
@@ -130,13 +144,17 @@ and change it to
 
 1. restart the ssh service with:
 
-```sudo systemctl restart ssh.service```
+```
+  sudo systemctl restart ssh.service
+```
 
 2. now try connecting as root with:
 
-```ssh -i path-to-your-key root@address-of-server```
+```
+  ssh -i path-to-your-key root@address-of-server
+```
 
-you should recieve a "permission denied" error
+you should recieve a *permission denied* error
 
 ## 4. Installing Nginx
 
