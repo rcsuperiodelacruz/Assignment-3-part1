@@ -31,7 +31,7 @@ ssh-keygen -t ed25519 -f .ssh/do-key -C "your-email-address"
 
 Create a digital ocean account
 
-You can click (here for Digital Ocean)[https://try.digitalocean.com/cloud/?utm_campaign=amer_brand_kw_en_cpc&utm_adgroup=digitalocean_exact_exact&_keyword=digital%20ocean&_device=c&_adposition=&utm_content=conversion&utm_medium=cpc&utm_source=google&gad_source=1&gclid=CjwKCAiApaarBhB7EiwAYiMwqt7BzpTlwtOw-X9aM2EEmbUjQffHf7KzprOuGnyCC6fc7CQYq0XcbBoCV5QQAvD_BwE]
+You can click [here for Digital Ocean](https://try.digitalocean.com/cloud/?utm_campaign=amer_brand_kw_en_cpc&utm_adgroup=digitalocean_exact_exact&_keyword=digital%20ocean&_device=c&_adposition=&utm_content=conversion&utm_medium=cpc&utm_source=google&gad_source=1&gclid=CjwKCAiApaarBhB7EiwAYiMwqt7BzpTlwtOw-X9aM2EEmbUjQffHf7KzprOuGnyCC6fc7CQYq0XcbBoCV5QQAvD_BwE)
 
 You need to add your personal information
 
